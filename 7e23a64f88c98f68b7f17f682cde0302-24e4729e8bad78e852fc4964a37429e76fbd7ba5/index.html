@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Tienda Ultra Profesional</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <h1 class="logo">Mi Tienda</h1>
+    <button class="btn-hamburguesa" onclick="toggleMenu()">☰</button>
+    <button class="btn-carrito" onclick="toggleCarrito()">🛒 Carrito</button>
+    <ul id="nav-links">
+      <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+      <li><a href="#" onclick="mostrarSeccion('productos')">Productos</a></li>
+      <li><a href="#" onclick="mostrarSeccion('sobre')">Sobre</a></li>
+      <li><a href="#" onclick="mostrarSeccion('contacto')">Contacto</a></li>
+      <li><a href="#" onclick="mostrarAdminPrompt()">Admin</a></li>
+    </ul>
+  </nav>
+
+  <!-- INICIO -->
+  <section id="inicio" class="seccion activo fade-in">
+    <h2>Productos Destacados</h2>
+    <div id="inicio-productos" class="productos-grid"></div>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos" class="seccion">
+    <h2>Todos los Productos</h2>
+    <div id="products-list" class="productos-grid"></div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="seccion">
+    <h2>Sobre nosotros</h2>
+    <p>Somos una tienda dedicada al cuidado personal y belleza.</p>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="seccion">
+    <h2>Contacto</h2>
+    <p>Email: mitienda@example.com</p>
+  </section>
+
+  <!-- CARRITO -->
+  <div id="carrito" class="panel movible oculto">
+    <h3>Carrito</h3>
+    <ul id="lista-carrito"></ul>
+    <p id="total"></p>
+    <button onclick="pagarCarrito()" class="btn-carrito">Pagar</button>
+  </div>
+
+  <!-- PANEL ADMIN -->
+  <div id="admin-panel" class="panel movible oculto">
+    <h2>Panel Admin</h2>
+
+    <h3>Agregar Producto</h3>
+    <form id="admin-form">
+      <input type="text" id="admin-nombre" placeholder="Nombre del producto" required>
+      <input type="number" id="admin-precio" placeholder="Precio" required>
+      <input type="file" id="admin-img" accept="image/*">
+      <button type="submit">Agregar Producto</button>
+    </form>
+
+    <h3>Productos Existentes</h3>
+    <ul id="admin-productos"></ul>
+
+    <button onclick="cerrarAdmin()">Cerrar Admin</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
